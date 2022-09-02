@@ -13,14 +13,18 @@
 <body>
     <h1 class="text-primary fs-1 text-center my-3 fw-bold">Phones Information</h1>
     <section class="d-flex justify-content-center align-items-center flex-column my-5 ">
-        <input type="text" class="p-3 w-50 rounded rounded-4 text-center" id="mealField" placeholder="Search Phones">
+        <input type="text" class="p-3 w-50 rounded rounded-4 text-center" id="inputField" placeholder="Search Phones">
         <button class="py-3 px-5 btn btn-info rounded rounded-4 fw-bold text-light my-2"
-            onclick="searchDisplay()">Search</button>
+            id="getSearchValues">Search</button>
     </section>
 
-    <section class="container">
+    <section class="container my-5">
         <div id="phone-container" class="row row-cols-1 row-cols-md-3 g-4">
 
+        </div>
+        <!-- <h1 id="search-warning" class="d-none ">NO PHONE FOUND</h1> -->
+        <div id="no-found-message" class="d-none">
+            <h3 class="text-info fs-1 fw-bold text-center">No Phone Found</h3>
         </div>
 
     </section>
