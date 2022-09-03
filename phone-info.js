@@ -7,7 +7,7 @@ const loadPhones = async (searchPhones) => {
 }
 
 const displayPhones = phones => {
-    console.log(phones);
+    // console.log(phones);
     const phoneElement = document.getElementById('phone-container');
     phoneElement.textContent = '';
 
@@ -42,6 +42,8 @@ const displayPhones = phones => {
     `
         phoneElement.appendChild(phoneDivElement);
 
+        toggleSpiner(false);
+
 
     });
 
@@ -50,9 +52,21 @@ const displayPhones = phones => {
 
 
 document.getElementById('getSearchValues').addEventListener('click', function () {
+    toggleSpiner(true);
 
     const searchField = document.getElementById('inputField')
     const searchValue = searchField.value;
     loadPhones(searchValue);
 })
+
+
+const toggleSpiner = isLoading => {
+    const toggleElement = document.getElementById('loader');
+    if (isLoading) {
+        toggleElement.classList.remove('d-none');
+    }
+    else {
+        toggleElement.classList.add('d-none');
+    }
+}
 
