@@ -1,4 +1,4 @@
-const loadPhones = async (searchPhones, dtalimit) => {
+const loadPhones = async (searchPhones) => {
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchPhones}`
     const res = await fetch(url);
     const data = await res.json();
@@ -7,6 +7,7 @@ const loadPhones = async (searchPhones, dtalimit) => {
 }
 
 const displayPhones = phones => {
+    console.log(phones);
     const phoneElement = document.getElementById('phone-container');
     phoneElement.textContent = '';
 
@@ -46,16 +47,12 @@ const displayPhones = phones => {
 
 
 }
-const processor = dtalimit => {
-    const searchField = document.getElementById('inputField')
-    const searchValue = searchField.value;
-    loadPhones(searchValue, dtalimit);
 
-}
 
 document.getElementById('getSearchValues').addEventListener('click', function () {
 
-    processor(10);
+    const searchField = document.getElementById('inputField')
+    const searchValue = searchField.value;
+    loadPhones(searchValue);
 })
 
-loadPhones();
